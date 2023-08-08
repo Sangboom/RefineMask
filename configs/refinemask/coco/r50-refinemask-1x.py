@@ -181,7 +181,7 @@ test_pipeline = [
         ])
 ]
 
-data_root = '/home/zhanggang/RefineMask/data/coco' # change this to your own path
+data_root = '/home/sblee/Workspace/RefineMask/data/coco' # change this to your own path
 data = dict(
     samples_per_gpu=2,
     workers_per_gpu=2,
