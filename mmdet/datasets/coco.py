@@ -45,7 +45,10 @@ class CocoDataset(CustomDataset):
         """
 
         self.coco = COCO(ann_file)
-        self.cat_ids = self.coco.getCatIds(catNms=self.CLASSES)
+        if 'armbench' in ann_file:
+            self.cat_ids = self.coco.getCatIds()
+        else:
+            self.cat_ids = self.coco.getCatIds(catNms=self.CLASSES)
         self.cat2label = {cat_id: i for i, cat_id in enumerate(self.cat_ids)}
         self.img_ids = self.coco.getImgIds()
         data_infos = []
