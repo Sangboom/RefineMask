@@ -3,7 +3,7 @@ import random
 import numpy as np
 import torch
 from mmcv.parallel import MMDataParallel, MMDistributedDataParallel
-from mmcv.runner import (HOOKS, DistSamplerSeedHook, EpochBasedRunner,
+from mmcv.runner import (HOOKS, DistSamplerSeedHook, EpochBasedRunner, IterBasedRunner,
                          OptimizerHook, build_optimizer)
 from mmcv.utils import build_from_cfg
 
@@ -83,7 +83,8 @@ def train_detector(model,
 
     # build runner
     optimizer = build_optimizer(model, cfg.optimizer)
-    runner = EpochBasedRunner(
+    # runner = EpochBasedRunner(
+    runner = IterBasedRunner(
         model,
         optimizer=optimizer,
         work_dir=cfg.work_dir,
