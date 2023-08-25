@@ -140,7 +140,8 @@ test_cfg = dict(
         mask_thr_binary=0.5))
 
 img_norm_cfg = dict(
-    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
+    # mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
+    mean=[103.530, 116.280, 123.675], std=[1.0, 1.0, 1.0], to_rgb=True)
 
 train_pipeline = [
     dict(type='LoadImageFromFile'),
@@ -151,15 +152,17 @@ train_pipeline = [
         poly2mask=False),
     # dict(type='Resize', img_scale=(1333, 800), keep_ratio=True),
     dict(type='Resize', 
-        img_scale=[(1333, 640), (1333, 672), (1333, 704), (1333, 736),
-            (1333, 768), (1333, 800)], 
+        img_scale=[(768, 640), (832, 672), (864, 704), (896, 736),
+            (928, 768), (960, 800)], 
         multiscale_mode='value',
         keep_ratio=True),
     dict(type='RandomFlip', flip_ratio=0.5),
     dict(
         type='Normalize',
-        mean=[123.675, 116.28, 103.53],
-        std=[58.395, 57.12, 57.375],
+        # mean=[123.675, 116.28, 103.53],
+        mean=[103.530, 116.280, 123.675],
+        # std=[58.395, 57.12, 57.375],
+        std=[1.0, 1.0, 1.0],
         to_rgb=True),
     dict(type='Pad', size_divisor=32),
     dict(type='DefaultFormatBundle'),
@@ -170,15 +173,17 @@ test_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(
         type='MultiScaleFlipAug',
-        img_scale=(1333, 800),
+        img_scale=(960, 800),
         flip=False,
         transforms=[
             dict(type='Resize', keep_ratio=True),
             dict(type='RandomFlip'),
             dict(
                 type='Normalize',
-                mean=[123.675, 116.28, 103.53],
-                std=[58.395, 57.12, 57.375],
+                # mean=[123.675, 116.28, 103.53],
+                mean=[103.530, 116.280, 123.675],
+                # std=[58.395, 57.12, 57.375],
+                std=[1.0, 1.0, 1.0],
                 to_rgb=True),
             dict(type='Pad', size_divisor=32),
             dict(type='ImageToTensor', keys=['img']),
@@ -202,15 +207,17 @@ data = dict(
                 with_mask=True,
                 poly2mask=True),
             dict(type='Resize', 
-                img_scale=[(1333, 640), (1333, 672), (1333, 704), (1333, 736),
-                    (1333, 768), (1333, 800)], 
+                img_scale=[(768, 640), (832, 672), (864, 704), (896, 736),
+                    (928, 768), (960, 800)], 
                 multiscale_mode='value',
                 keep_ratio=True),
             dict(type='RandomFlip', flip_ratio=0.5),
             dict(
                 type='Normalize',
-                mean=[123.675, 116.28, 103.53],
-                std=[58.395, 57.12, 57.375],
+                # mean=[123.675, 116.28, 103.53],
+                mean=[103.530, 116.280, 123.675],
+                # std=[58.395, 57.12, 57.375],
+                std=[1.0, 1.0, 1.0],
                 to_rgb=True),
             dict(type='Pad', size_divisor=32),
             dict(type='DefaultFormatBundle'),
@@ -227,15 +234,17 @@ data = dict(
             dict(type='LoadImageFromFile'),
             dict(
                 type='MultiScaleFlipAug',
-                img_scale=(956, 800),
+                img_scale=(960, 800),
                 flip=False,
                 transforms=[
                     dict(type='Resize', keep_ratio=True),
                     dict(type='RandomFlip'),
                     dict(
                         type='Normalize',
-                        mean=[123.675, 116.28, 103.53],
-                        std=[58.395, 57.12, 57.375],
+                        # mean=[123.675, 116.28, 103.53],
+                        mean=[103.530, 116.280, 123.675],
+                        # std=[58.395, 57.12, 57.375],
+                        std=[1.0, 1.0, 1.0],
                         to_rgb=True),
                     dict(type='Pad', size_divisor=32),
                     dict(type='ImageToTensor', keys=['img']),
@@ -251,15 +260,17 @@ data = dict(
             dict(type='LoadImageFromFile'),
             dict(
                 type='MultiScaleFlipAug',
-                img_scale=(956, 800),
+                img_scale=(960, 800),
                 flip=False,
                 transforms=[
                     dict(type='Resize', keep_ratio=True),
                     dict(type='RandomFlip'),
                     dict(
                         type='Normalize',
-                        mean=[123.675, 116.28, 103.53],
-                        std=[58.395, 57.12, 57.375],
+                        # mean=[123.675, 116.28, 103.53],
+                        mean=[103.530, 116.280, 123.675],
+                        # std=[58.395, 57.12, 57.375],
+                        std=[1.0, 1.0, 1.0],
                         to_rgb=True),
                     # dict(type='Pad', size_divisor=32),
                     dict(type='ImageToTensor', keys=['img']),
