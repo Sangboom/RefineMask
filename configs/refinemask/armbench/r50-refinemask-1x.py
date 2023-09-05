@@ -1,6 +1,7 @@
 model = dict(
     type='MaskRCNN',
-    pretrained='torchvision://resnet50',
+    # pretrained='torchvision://resnet50',
+    pretrained='open-mmlab://detectron2/resnet50_caffe',
     backbone=dict(
         type='ResNet',
         depth=50,
@@ -164,7 +165,7 @@ train_pipeline = [
         # std=[58.395, 57.12, 57.375],
         std=[1.0, 1.0, 1.0],
         to_rgb=True),
-    dict(type='Pad', size_divisor=32),
+    # dict(type='Pad', size_divisor=32),
     dict(type='DefaultFormatBundle'),
     dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels', 'gt_masks'])
 ]
@@ -173,7 +174,7 @@ test_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(
         type='MultiScaleFlipAug',
-        img_scale=(960, 800),
+        img_scale=(800, 800),
         flip=False,
         transforms=[
             dict(type='Resize', keep_ratio=True),
@@ -185,7 +186,7 @@ test_pipeline = [
                 # std=[58.395, 57.12, 57.375],
                 std=[1.0, 1.0, 1.0],
                 to_rgb=True),
-            dict(type='Pad', size_divisor=32),
+            # dict(type='Pad', size_divisor=32),
             dict(type='ImageToTensor', keys=['img']),
             dict(type='Collect', keys=['img'])
         ])
@@ -219,7 +220,7 @@ data = dict(
                 # std=[58.395, 57.12, 57.375],
                 std=[1.0, 1.0, 1.0],
                 to_rgb=True),
-            dict(type='Pad', size_divisor=32),
+            # dict(type='Pad', size_divisor=32),
             dict(type='DefaultFormatBundle'),
             dict(
                 type='Collect',
@@ -229,12 +230,13 @@ data = dict(
     val=dict(
         type='CocoDataset',
         ann_file='val.json',
+        # ann_file='test.json',
         img_prefix='images',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(
                 type='MultiScaleFlipAug',
-                img_scale=(960, 800),
+                img_scale=(800, 800),
                 flip=False,
                 transforms=[
                     dict(type='Resize', keep_ratio=True),
@@ -246,7 +248,7 @@ data = dict(
                         # std=[58.395, 57.12, 57.375],
                         std=[1.0, 1.0, 1.0],
                         to_rgb=True),
-                    dict(type='Pad', size_divisor=32),
+                    # dict(type='Pad', size_divisor=32),
                     dict(type='ImageToTensor', keys=['img']),
                     dict(type='Collect', keys=['img'])
                 ])
@@ -260,7 +262,7 @@ data = dict(
             dict(type='LoadImageFromFile'),
             dict(
                 type='MultiScaleFlipAug',
-                img_scale=(960, 800),
+                img_scale=(800, 800),
                 flip=False,
                 transforms=[
                     dict(type='Resize', keep_ratio=True),
@@ -282,7 +284,7 @@ data = dict(
 evaluation = dict(metric=['bbox', 'segm'], classwise=True, interval=12)
 # optimizer = dict(type='SGD', lr=0.02, momentum=0.9, weight_decay=0.0001)
 optimizer = dict(type='SGD', lr=0.0025, momentum=0.9, weight_decay=0.0001)
-optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
+# optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
 total_epochs = 90000    # total iteration
 lr_config = dict(
     policy='step',

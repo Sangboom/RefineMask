@@ -125,6 +125,11 @@ def main():
     else:
         model.CLASSES = dataset.CLASSES
 
+    from fvcore.nn.parameter_count import parameter_count_table
+    print(parameter_count_table(model, max_depth=10))
+    # import time
+    # time.sleep(1000)
+
     if not distributed:
         model = MMDataParallel(model, device_ids=[0])
         outputs = single_gpu_test(model, data_loader, args.show, args.show_dir,
