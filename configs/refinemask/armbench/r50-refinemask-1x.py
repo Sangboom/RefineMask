@@ -1,7 +1,7 @@
 model = dict(
     type='MaskRCNN',
-    # pretrained='torchvision://resnet50',
-    pretrained='open-mmlab://detectron2/resnet50_caffe',
+    pretrained='torchvision://resnet50',
+    # pretrained='open-mmlab://detectron2/resnet50_caffe',
     backbone=dict(
         type='ResNet',
         depth=50,
@@ -141,8 +141,8 @@ test_cfg = dict(
         mask_thr_binary=0.5))
 
 img_norm_cfg = dict(
-    # mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
-    mean=[103.530, 116.280, 123.675], std=[1.0, 1.0, 1.0], to_rgb=True)
+    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
+    # mean=[103.530, 116.280, 123.675], std=[1.0, 1.0, 1.0], to_rgb=True)
 
 train_pipeline = [
     dict(type='LoadImageFromFile'),
@@ -160,12 +160,12 @@ train_pipeline = [
     dict(type='RandomFlip', flip_ratio=0.5),
     dict(
         type='Normalize',
-        # mean=[123.675, 116.28, 103.53],
-        mean=[103.530, 116.280, 123.675],
-        # std=[58.395, 57.12, 57.375],
-        std=[1.0, 1.0, 1.0],
+        mean=[123.675, 116.28, 103.53],
+        # mean=[103.530, 116.280, 123.675],
+        std=[58.395, 57.12, 57.375],
+        # std=[1.0, 1.0, 1.0],
         to_rgb=True),
-    # dict(type='Pad', size_divisor=32),
+    dict(type='Pad', size_divisor=32),
     dict(type='DefaultFormatBundle'),
     dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels', 'gt_masks'])
 ]
@@ -181,12 +181,12 @@ test_pipeline = [
             dict(type='RandomFlip'),
             dict(
                 type='Normalize',
-                # mean=[123.675, 116.28, 103.53],
-                mean=[103.530, 116.280, 123.675],
-                # std=[58.395, 57.12, 57.375],
-                std=[1.0, 1.0, 1.0],
+                mean=[123.675, 116.28, 103.53],
+                # mean=[103.530, 116.280, 123.675],
+                std=[58.395, 57.12, 57.375],
+                # std=[1.0, 1.0, 1.0],
                 to_rgb=True),
-            # dict(type='Pad', size_divisor=32),
+            dict(type='Pad', size_divisor=32),
             dict(type='ImageToTensor', keys=['img']),
             dict(type='Collect', keys=['img'])
         ])
@@ -215,12 +215,12 @@ data = dict(
             dict(type='RandomFlip', flip_ratio=0.5),
             dict(
                 type='Normalize',
-                # mean=[123.675, 116.28, 103.53],
-                mean=[103.530, 116.280, 123.675],
-                # std=[58.395, 57.12, 57.375],
-                std=[1.0, 1.0, 1.0],
+                mean=[123.675, 116.28, 103.53],
+                # mean=[103.530, 116.280, 123.675],
+                std=[58.395, 57.12, 57.375],
+                # std=[1.0, 1.0, 1.0],
                 to_rgb=True),
-            # dict(type='Pad', size_divisor=32),
+            dict(type='Pad', size_divisor=32),
             dict(type='DefaultFormatBundle'),
             dict(
                 type='Collect',
@@ -243,10 +243,10 @@ data = dict(
                     dict(type='RandomFlip'),
                     dict(
                         type='Normalize',
-                        # mean=[123.675, 116.28, 103.53],
-                        mean=[103.530, 116.280, 123.675],
-                        # std=[58.395, 57.12, 57.375],
-                        std=[1.0, 1.0, 1.0],
+                        mean=[123.675, 116.28, 103.53],
+                        # mean=[103.530, 116.280, 123.675],
+                        std=[58.395, 57.12, 57.375],
+                        # std=[1.0, 1.0, 1.0],
                         to_rgb=True),
                     # dict(type='Pad', size_divisor=32),
                     dict(type='ImageToTensor', keys=['img']),
@@ -269,12 +269,12 @@ data = dict(
                     dict(type='RandomFlip'),
                     dict(
                         type='Normalize',
-                        # mean=[123.675, 116.28, 103.53],
-                        mean=[103.530, 116.280, 123.675],
-                        # std=[58.395, 57.12, 57.375],
-                        std=[1.0, 1.0, 1.0],
+                        mean=[123.675, 116.28, 103.53],
+                        # mean=[103.530, 116.280, 123.675],
+                        std=[58.395, 57.12, 57.375],
+                        # std=[1.0, 1.0, 1.0],
                         to_rgb=True),
-                    # dict(type='Pad', size_divisor=32),
+                    dict(type='Pad', size_divisor=32),
                     dict(type='ImageToTensor', keys=['img']),
                     dict(type='Collect', keys=['img'])
                 ])
@@ -284,7 +284,7 @@ data = dict(
 evaluation = dict(metric=['bbox', 'segm'], classwise=True, interval=12)
 # optimizer = dict(type='SGD', lr=0.02, momentum=0.9, weight_decay=0.0001)
 optimizer = dict(type='SGD', lr=0.0025, momentum=0.9, weight_decay=0.0001)
-# optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
+optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
 total_epochs = 90000    # total iteration
 lr_config = dict(
     policy='step',

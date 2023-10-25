@@ -1,25 +1,25 @@
 +----------+-------+----------+-------+
 | category | AP    | category | AP    |
 +----------+-------+----------+-------+
-| Tote     | 0.986 | Object   | 0.535 |
+| Tote     | 0.985 | Object   | 0.554 |
 +----------+-------+----------+-------+
-Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.761
-Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.879
-Average Precision  (AP) @[ IoU=0.55      | area=   all | maxDets=100 ] = 0.867
-Average Precision  (AP) @[ IoU=0.60      | area=   all | maxDets=100 ] = 0.852
-Average Precision  (AP) @[ IoU=0.65      | area=   all | maxDets=100 ] = 0.833
-Average Precision  (AP) @[ IoU=0.70      | area=   all | maxDets=100 ] = 0.810
-Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.782
-Average Precision  (AP) @[ IoU=0.80      | area=   all | maxDets=100 ] = 0.746
-Average Precision  (AP) @[ IoU=0.85      | area=   all | maxDets=100 ] = 0.700
-Average Precision  (AP) @[ IoU=0.90      | area=   all | maxDets=100 ] = 0.629
-Average Precision  (AP) @[ IoU=0.95      | area=   all | maxDets=100 ] = 0.508
-Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.058
-Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.305
-Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.826
-Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.801
-Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.801
-Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.801
-Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.123
-Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.423
-Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.863
+Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.769
+Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.885
+Average Precision  (AP) @[ IoU=0.55      | area=   all | maxDets=100 ] = 0.874
+Average Precision  (AP) @[ IoU=0.60      | area=   all | maxDets=100 ] = 0.860
+Average Precision  (AP) @[ IoU=0.65      | area=   all | maxDets=100 ] = 0.841
+Average Precision  (AP) @[ IoU=0.70      | area=   all | maxDets=100 ] = 0.818
+Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.791
+Average Precision  (AP) @[ IoU=0.80      | area=   all | maxDets=100 ] = 0.757
+Average Precision  (AP) @[ IoU=0.85      | area=   all | maxDets=100 ] = 0.712
+Average Precision  (AP) @[ IoU=0.90      | area=   all | maxDets=100 ] = 0.642
+Average Precision  (AP) @[ IoU=0.95      | area=   all | maxDets=100 ] = 0.512
+Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.085
+Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.324
+Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.834
+Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.807
+Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.807
+Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.807
+Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.125
+Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.437
+Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.869
