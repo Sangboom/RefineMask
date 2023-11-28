@@ -91,7 +91,22 @@ def multi_gpu_test(model, data_loader, tmpdir=None, gpu_collect=False):
     time.sleep(2)  # This line can prevent deadlock problem in some cases.
     for i, data in enumerate(data_loader):
         with torch.no_grad():
+            
+            # with torch.profiler.profile(
+            #     activities=[
+            #         torch.profiler.ProfilerActivity.CPU,
+            #         torch.profiler.ProfilerActivity.CUDA,
+            #     ],
+            #     with_flops=True) as prof:
+            #     result = model(return_loss=False, rescale=True, **data)
+            
+            # events = prof.events()
+            # forward_flops = sum([int(evt.flops) for evt in events]) 
+            # total_compute_time = forward_flops / 1e9
+            # print(total_compute_time)
+
             result = model(return_loss=False, rescale=True, **data)
+
             # encode mask results
             if isinstance(result, tuple):
                 bbox_results, mask_results = result
