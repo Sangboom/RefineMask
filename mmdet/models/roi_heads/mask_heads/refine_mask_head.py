@@ -229,6 +229,7 @@ class RefineMaskHead(nn.Module):
             nn.init.constant_(m.bias, 0)
 
     def forward(self, instance_feats, semantic_feat, rois, roi_labels):
+        print("RefineMaskHead")
         for conv in self.instance_convs:
             instance_feats = conv(instance_feats)
 

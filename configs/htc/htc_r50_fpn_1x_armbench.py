@@ -16,14 +16,20 @@ model = dict(
             num_classes=183,
             ignore_label=255,
             loss_weight=0.2)))
-data_root = 'data/coco/'
+# data_root = 'data/coco/'
+data_root = '/SSDc/sangbeom_lee/RefineMask/data/armbench/mix-object-tote/'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(
         type='LoadAnnotations', with_bbox=True, with_mask=True, with_seg=True),
-    dict(type='Resize', img_scale=(1333, 800), keep_ratio=True),
+    # dict(type='Resize', img_scale=(1333, 800), keep_ratio=True),
+    dict(type='Resize', 
+        img_scale=[(768, 640), (832, 672), (864, 704), (896, 736),
+            (928, 768), (960, 800)], 
+            multiscale_mode='value',
+        keep_ratio=True),
     dict(type='RandomFlip', flip_ratio=0.5),
     dict(type='Normalize', **img_norm_cfg),
     dict(type='Pad', size_divisor=32),
@@ -51,8 +57,7 @@ test_pipeline = [
 data = dict(
     train=dict(
         # seg_prefix=data_root + 'stuffthingmaps/train2017/',
-        # seg_prefix=data_root + 'train2017/',
-        seg_prefix=data_root + 'annotations/stuff_train2017_pixelmaps/',
+        seg_prefix=data_root + 'images',
         pipeline=train_pipeline),
     val=dict(pipeline=test_pipeline),
     test=dict(pipeline=test_pipeline))

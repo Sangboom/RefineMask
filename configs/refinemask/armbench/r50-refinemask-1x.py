@@ -174,7 +174,7 @@ test_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(
         type='MultiScaleFlipAug',
-        img_scale=(800, 800),
+        img_scale=(1333, 800),
         flip=False,
         transforms=[
             dict(type='Resize', keep_ratio=True),
@@ -192,7 +192,7 @@ test_pipeline = [
         ])
 ]
 
-data_root = '/home/sblee/Workspace/RefineMask/data/armbench/mix-object-tote' # change this to your own path
+data_root = '/SSDc/sangbeom_lee/RefineMask/data/armbench/mix-object-tote' # change this to your own path
 data = dict(
     samples_per_gpu=2,
     workers_per_gpu=2,
@@ -236,7 +236,7 @@ data = dict(
             dict(type='LoadImageFromFile'),
             dict(
                 type='MultiScaleFlipAug',
-                img_scale=(800, 800),
+                img_scale=(1333, 800),
                 flip=False,
                 transforms=[
                     dict(type='Resize', keep_ratio=True),
@@ -262,7 +262,7 @@ data = dict(
             dict(type='LoadImageFromFile'),
             dict(
                 type='MultiScaleFlipAug',
-                img_scale=(800, 800),
+                img_scale=(1333, 800),
                 flip=False,
                 transforms=[
                     dict(type='Resize', keep_ratio=True),

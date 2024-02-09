@@ -149,7 +149,12 @@ train_pipeline = [
         with_bbox=True,
         with_mask=True,
         poly2mask=False),
-    dict(type='Resize', img_scale=(1333, 800), keep_ratio=True),
+    # dict(type='Resize', img_scale=(1333, 800), keep_ratio=True),
+    dict(type='Resize', 
+        img_scale=[(768, 640), (832, 672), (864, 704), (896, 736),
+            (928, 768), (960, 800)], 
+        multiscale_mode='value',
+        keep_ratio=True),
     dict(type='RandomFlip', flip_ratio=0.5),
     dict(
         type='Normalize',
@@ -181,7 +186,7 @@ test_pipeline = [
         ])
 ]
 
-data_root = '/home/sblee/Workspace/RefineMask/data/coco' # change this to your own path
+data_root = '/SSDc/sangbeom_lee/RefineMask/data/coco' # change this to your own path
 data = dict(
     samples_per_gpu=2,
     workers_per_gpu=2,
@@ -196,7 +201,12 @@ data = dict(
                 with_bbox=True,
                 with_mask=True,
                 poly2mask=False),
-            dict(type='Resize', img_scale=(1333, 800), keep_ratio=True),
+            # dict(type='Resize', img_scale=(1333, 800), keep_ratio=True),
+            dict(type='Resize', 
+                img_scale=[(768, 640), (832, 672), (864, 704), (896, 736),
+                    (928, 768), (960, 800)], 
+                multiscale_mode='value',
+                keep_ratio=True),
             dict(type='RandomFlip', flip_ratio=0.5),
             dict(
                 type='Normalize',
@@ -262,14 +272,15 @@ data = dict(
 evaluation = dict(metric=['bbox', 'segm'], classwise=True, interval=12)
 optimizer = dict(type='SGD', lr=0.02, momentum=0.9, weight_decay=0.0001)
 optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
-total_epochs = 12
+total_epochs = 90000 # total iteration
 lr_config = dict(
     policy='step',
     warmup='linear',
-    warmup_iters=500,
+    # warmup_iters=500,
+    warmup_iters=1000,
     warmup_ratio=0.001,
-    step=[8, 11])
-checkpoint_config = dict(interval=1)
+    step=[60000, 80000])
+checkpoint_config = dict(interval=30000)
 log_config = dict(interval=50, hooks=[dict(type='TextLoggerHook')])
 dist_params = dict(backend='nccl')
 log_level = 'INFO'

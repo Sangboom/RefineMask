@@ -1,25 +1,51 @@
-+----------+-------+----------+-------+
-| category | AP    | category | AP    |
-+----------+-------+----------+-------+
-| Tote     | 0.990 | Object   | 0.581 |
-+----------+-------+----------+-------+
-Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.785
-Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.880
-Average Precision  (AP) @[ IoU=0.55      | area=   all | maxDets=100 ] = 0.869
-Average Precision  (AP) @[ IoU=0.60      | area=   all | maxDets=100 ] = 0.856
-Average Precision  (AP) @[ IoU=0.65      | area=   all | maxDets=100 ] = 0.841
-Average Precision  (AP) @[ IoU=0.70      | area=   all | maxDets=100 ] = 0.822
-Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.800
-Average Precision  (AP) @[ IoU=0.80      | area=   all | maxDets=100 ] = 0.771
-Average Precision  (AP) @[ IoU=0.85      | area=   all | maxDets=100 ] = 0.736
-Average Precision  (AP) @[ IoU=0.90      | area=   all | maxDets=100 ] = 0.683
-Average Precision  (AP) @[ IoU=0.95      | area=   all | maxDets=100 ] = 0.594
-Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.081
-Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.324
-Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.856
-Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.823
-Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.823
-Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.823
-Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.121
-Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.437
-Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.891
++---------------+-------+--------------+-------+----------------+-------+
+| category      | AP    | category     | AP    | category       | AP    |
++---------------+-------+--------------+-------+----------------+-------+
+| person        | 0.487 | bicycle      | 0.183 | car            | 0.421 |
+| motorcycle    | 0.339 | airplane     | 0.509 | bus            | 0.648 |
+| train         | 0.600 | truck        | 0.339 | boat           | 0.239 |
+| traffic light | 0.259 | fire hydrant | 0.645 | stop sign      | 0.653 |
+| parking meter | 0.490 | bench        | 0.179 | bird           | 0.288 |
+| cat           | 0.674 | dog          | 0.577 | horse          | 0.434 |
+| sheep         | 0.442 | cow          | 0.487 | elephant       | 0.579 |
+| bear          | 0.635 | zebra        | 0.593 | giraffe        | 0.567 |
+| backpack      | 0.158 | umbrella     | 0.464 | handbag        | 0.135 |
+| tie           | 0.316 | suitcase     | 0.396 | frisbee        | 0.640 |
+| skis          | 0.040 | snowboard    | 0.211 | sports ball    | 0.421 |
+| kite          | 0.299 | baseball bat | 0.264 | baseball glove | 0.363 |
+| skateboard    | 0.318 | surfboard    | 0.304 | tennis racket  | 0.530 |
+| bottle        | 0.378 | wine glass   | 0.322 | cup            | 0.428 |
+| fork          | 0.163 | knife        | 0.112 | spoon          | 0.106 |
+| bowl          | 0.403 | banana       | 0.210 | apple          | 0.190 |
+| sandwich      | 0.347 | orange       | 0.294 | broccoli       | 0.218 |
+| carrot        | 0.173 | hot dog      | 0.235 | pizza          | 0.503 |
+| donut         | 0.449 | cake         | 0.362 | chair          | 0.190 |
+| couch         | 0.347 | potted plant | 0.223 | bed            | 0.317 |
+| dining table  | 0.149 | toilet       | 0.576 | tv             | 0.578 |
+| laptop        | 0.612 | mouse        | 0.601 | remote         | 0.282 |
+| keyboard      | 0.501 | cell phone   | 0.343 | microwave      | 0.580 |
+| oven          | 0.312 | toaster      | 0.454 | sink           | 0.337 |
+| refrigerator  | 0.548 | book         | 0.097 | clock          | 0.511 |
+| vase          | 0.379 | scissors     | 0.199 | teddy bear     | 0.457 |
+| hair drier    | 0.007 | toothbrush   | 0.146 | None           | None  |
++---------------+-------+--------------+-------+----------------+-------+
+Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.372
+Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.573
+Average Precision  (AP) @[ IoU=0.55      | area=   all | maxDets=100 ] = 0.552
+Average Precision  (AP) @[ IoU=0.60      | area=   all | maxDets=100 ] = 0.527
+Average Precision  (AP) @[ IoU=0.65      | area=   all | maxDets=100 ] = 0.494
+Average Precision  (AP) @[ IoU=0.70      | area=   all | maxDets=100 ] = 0.456
+Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.401
+Average Precision  (AP) @[ IoU=0.80      | area=   all | maxDets=100 ] = 0.334
+Average Precision  (AP) @[ IoU=0.85      | area=   all | maxDets=100 ] = 0.239
+Average Precision  (AP) @[ IoU=0.90      | area=   all | maxDets=100 ] = 0.124
+Average Precision  (AP) @[ IoU=0.95      | area=   all | maxDets=100 ] = 0.021
+Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.213
+Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.403
+Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.492
+Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.518
+Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.518
+Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.518
+Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.331
+Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.556
+Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.666
